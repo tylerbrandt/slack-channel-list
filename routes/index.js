@@ -15,9 +15,10 @@ router.get('/', function(req, res, next) {
       return next(err);
     }
     if (!apiResponse.body.ok) {
-      if (apiResponse.body.error == 'invalid_auth') {
+      if (apiResponse.body.error == 'invalid_auth' || apiResponse.body.error == 'not_authed') {
         return next(new Error('Invalid auth, make sure SLACK_TOKEN is set in environment'));
       }
+      return next(new Error('Error in response: ' + apiResponse.error));
     }
     res.render('index', { data: apiResponse.body.channels });
   });
