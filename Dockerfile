@@ -9,4 +9,6 @@ RUN ["./node_modules/.bin/grunt", "bower"]
 
 ENV NODE_ENV=production
 EXPOSE 3000
-CMD ["npm", "start"]
+
+CMD []
+ENTRYPOINT ["npm", "start"]
