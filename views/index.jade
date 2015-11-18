@@ -1,0 +1,24 @@
+extends layout
+
+block head
+  script(src="/vendor/jquery/dist/jquery.js")
+  script(src="/vendor/datatables/media/js/jquery.dataTables.js")
+  link(rel="stylesheet" href="/vendor/datatables/media/css/jquery.dataTables.css")
+
+block content
+  h1 Optimizely Slack Directory
+  table#channel-list
+    thead
+      tr
+        th Channel
+        th Topic
+        th Purpose
+    tbody
+      each chan in data
+        tr
+          td= "#" + chan.name
+          td= chan.topic.value
+          td= chan.purpose.value
+
+  script.
+    $("#channel-list").DataTable();
