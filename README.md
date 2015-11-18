@@ -2,6 +2,8 @@
 
 List slack channels in the organization, with topic and purpose.
 
+DEMO: http://slack-channels.dz.optimizely.com
+
 Prerequisites: `npm`
 
 Usage:
