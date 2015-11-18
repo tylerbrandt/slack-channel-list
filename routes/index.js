@@ -1,13 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-var secrets = require('../secrets.json');
 
 var API_BASE = 'https://slack.com/api/channels.list';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var token = secrets.token;
+  var token = process.env.SLACK_TOKEN;
   request({
     url: API_BASE + '?token=' + token + '&exclude_archived=1',
     json: true
@@ -17,7 +16,7 @@ router.get('/', function(req, res, next) {
     }
     if (!apiResponse.body.ok) {
       if (apiResponse.body.error == 'invalid_auth') {
-        return next(new Error('Invalid auth, make sure the secret "token" is set in secrets.json'));
+        return next(new Error('Invalid auth, make sure SLACK_TOKEN is set in environment'));
       }
     }
     res.render('index', { data: apiResponse.body.channels });

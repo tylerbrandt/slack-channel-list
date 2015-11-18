@@ -8,9 +8,13 @@ Usage:
 ```
 npm install
 ```
-You'll be prompted for your token from slack. Go to https://api.slack.com/web and click "Generate token" under "Authentication"
-to get it.
+Go to https://api.slack.com/web and click "Generate token" under "Authentication" to get your slack token
+and set it as SLACK_TOKEN in the environment:
+```
+export SLACK_TOKEN=$YOUR_TOKEN_HERE
+```
 
+Start the app:
 ```
 npm start
 ```
