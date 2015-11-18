@@ -16,7 +16,8 @@ block content
     tbody
       each chan in data
         tr
-          td= "#" + chan.name
+          td
+            a(href="https://optimizely.slack.com/archives/" + chan.name target="blank")= "#" + chan.name
           td= chan.topic.value
           td= chan.purpose.value
 
