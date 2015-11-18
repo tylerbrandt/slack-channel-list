@@ -30,5 +30,6 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('default', ['bower', 'prompt']);
+  grunt.registerTask('configure', ['prompt']);
+  grunt.registerTask('default', ['bower']);
 }
